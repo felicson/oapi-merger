@@ -45,8 +45,8 @@ func main() {
 
 	doc.InternalizeRefs(context.Background(), func(ref string) string {
 		if idx := strings.Index(ref, "#"); idx > 1 {
-			ref = ref[idx+2:]
-			return ref[strings.LastIndex(ref, "/")+2:]
+			ref = ref[idx+1:]
+			return ref[strings.LastIndex(ref, "/")+1:]
 		}
 		return strings.TrimRight(filepath.Base(ref), filepath.Ext(ref))
 	})

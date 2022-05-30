@@ -1,0 +1,14 @@
+OneResponse:
+  description: One response
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../openapi.yaml#/components/schemas/api'
+          - $ref: '#/Pet'
+
+Pet:
+  properties:
+    status:
+      $ref: '../../openapi.yaml#/components/schemas/ProductStatus'
+  type: object

@@ -1,0 +1,84 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: Test API
+  contact:
+    url: www.test.com
+    email: support@test.com
+  description: Test API
+servers:
+  - url: 'https://test.com'
+    description: Test
+paths:
+  /apis/one/{api-id}:
+    $ref: routes/one.yaml#/paths/GetOne
+
+  /apis/{api-id}:
+      get:
+        summary: Gets an API1
+        operationId: get-api
+        responses:
+          '200':
+            description: Fail
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/api'
+        description: Gets an API
+        tags:
+          - APIs
+      parameters:
+        - schema:
+            type: string
+          name: api-id
+          in: path
+          required: true
+components:
+  schemas:
+    api:
+      title: api
+      allOf:
+        #- $ref: schemas/node.yaml
+        - type: object
+          #additionalProperties: false
+          properties:
+            api_id:
+              type: string
+              format: uuid
+              description: ID of the API
+              readOnly: true
+            description:
+              type: string
+              maxLength: 250
+              description: Display friendly description of the API
+          required:
+            - api_id
+      description: Represents an API.
+      x-tags:
+        - apis
+    ProductStatus:
+      type: string
+      enum: [one, two]
+      example: felicson
+      x-oapi-codegen-extra-tags:
+        binding: required
+
+  responses: 
+    NoError:
+      description: bla
+      content:
+        application/json:
+          schema:
+            title: api
+            type: object
+            properties:
+              info:
+                type: string
+
+  parameters: {}
+  examples: {}
+  requestBodies: {}
+tags:
+  - name: APIs
+    description: APIs endpoints.
+

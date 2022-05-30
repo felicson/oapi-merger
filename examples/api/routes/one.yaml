@@ -1,0 +1,27 @@
+paths:
+  GetOne:
+    get:
+      summary: Gets an API
+      operationId: get-api-one
+      description: Gets an API
+      responses:
+        '200':
+          $ref: ../responses/one/one.yaml#/OneResponse
+        default:
+          $ref: ../openapi.yaml#/components/responses/NoError
+      tags:
+        - APIs
+    parameters:
+      - schema:
+          type: string
+        name: api-id
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: apione-id
+        in: query
+        required: true
+        x-oapi-codegen-extra-tags:
+          binding: required
+          

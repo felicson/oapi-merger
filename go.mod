@@ -1,4 +1,4 @@
-module gitlab.cgorod.pw/golang-service/oapi-merger
+module github.com/felicson/oapi-merger
 
 go 1.16
 

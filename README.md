@@ -1,4 +1,4 @@
-#oapi-merger
+# oapi-merger
 
 This tool helps to merge openapi 3 version specification to one file, based on references in files.
 
@@ -15,5 +15,5 @@ oapi-merger -wdir examples/api -spec openapi.yaml
 ```
 
 Flags:  
-    -wdir - working directory  
-    -spec - input root file with openapi spec
+    -wdir - directory with specification hierarchy
+    -spec - input root file with openapi spec (default: openapi.yaml)

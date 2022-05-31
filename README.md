@@ -15,4 +15,5 @@ oapi-merger -wdir examples/api -spec openapi.yaml
 
 Flags:  
     -wdir - directory with specification hierarchy  
-    -spec - input root file with openapi spec (default: openapi.yaml)
+    -spec - input root file with openapi spec (default: openapi.yaml)  
+    -o    - where to output generated code, stdout is default

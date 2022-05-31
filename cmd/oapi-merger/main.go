@@ -5,7 +5,6 @@ import (
 	"context"
 	"encoding/json"
 	"flag"
-	"io/ioutil"
 	"log"
 	"net/url"
 	"os"
@@ -38,7 +37,7 @@ func main() {
 	loader := openapi3.NewLoader()
 	loader.IsExternalRefsAllowed = true
 	loader.ReadFromURIFunc = func(loader *openapi3.Loader, uri *url.URL) ([]byte, error) {
-		return ioutil.ReadFile(uri.Path)
+		return os.ReadFile(uri.Path)
 	}
 	doc, err := loader.LoadFromFile(flagSpecFile) // i.e "api/openapi.yaml")
 	if err != nil {

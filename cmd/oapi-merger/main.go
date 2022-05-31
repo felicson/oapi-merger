@@ -25,11 +25,6 @@ func main() {
 
 	flag.Parse()
 
-	if flag.NArg() < 1 {
-		println("Specify a path to openapi spec file")
-		os.Exit(1)
-	}
-
 	if err := os.Chdir(flagWorkDir); err != nil {
 		log.Fatal(err)
 	}
